@@ -1,0 +1,1 @@
+This is a learning module for bootdotdev, and should not be used by anyone as it lacks security and safety features that a normal production AI agent would have.
