@@ -1,5 +1,30 @@
 import os
 import subprocess
+from google import genai
+from google.genai import types
+
+
+schema_run_python_file = types.FunctionDeclaration(
+    name="run_python_file",
+    description="Executes a python file at a given file path with given arguments, providing output (exit code, or STDOUT and STDERR) if applicable",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="File path to the specified Python file, relative to the working directory (default is the working directory itself)",
+            ),
+            "args": types.Schema(
+                type=types.Type.ARRAY,
+                description="Any additional arguments to be passed into the Python function",
+                items=types.Schema(
+                    type=types.Type.STRING
+                )
+            )
+        },
+        required=["file_path", "args"],
+    ),
+)
 
 
 def run_python_file(working_directory, file_path, args=None):
@@ -31,8 +56,8 @@ def run_python_file(working_directory, file_path, args=None):
         if not result.stdout and not result.stderr:
             output += f"No output produced\n"
         else:
-            output += f"STDOUT: {result.stdout}\n"
-            output += f"STDERR: {result.stderr}\n"
+            output += f"STDOUT: {result.stdout}'\n'"
+            output += f"STDERR: {result.stderr}'\n'"
         
         return output
     except Exception as e:
