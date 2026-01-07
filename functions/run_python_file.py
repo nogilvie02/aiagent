@@ -56,8 +56,8 @@ def run_python_file(working_directory, file_path, args=None):
         if not result.stdout and not result.stderr:
             output += f"No output produced\n"
         else:
-            output += f"STDOUT: {result.stdout}'\n'"
-            output += f"STDERR: {result.stderr}'\n'"
+            output += f"STDOUT: {result.stdout}\n"
+            output += f"STDERR: {result.stderr}\n"
         
         return output
     except Exception as e:

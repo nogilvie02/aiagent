@@ -36,7 +36,7 @@ def get_files_info(working_directory, directory="."):
             full_path = os.path.join(target_dir, item)
             result = f"  - {item}: file_size={os.path.getsize(full_path)} bytes, is_dir={os.path.isdir(full_path)}"
             listed_dir.append(result)
-        end_result = "\n".join(listed_dir)
+        end_result = '\n'.join(listed_dir)
         
         return end_result
     except Exception as e:
